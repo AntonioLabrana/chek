@@ -15,7 +15,6 @@ const getDestinatarios = async (request, response) => {
 
 const getDestinatario = async (request, response) => {
     try{
-        console.log(request.params);
         if( !request || !request.params ) response.status(400).json({message:"Request vacío"});
 
         const { id } = request.params;

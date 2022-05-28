@@ -3,6 +3,7 @@ import morgan from "morgan";
 
 // Routes Import
 import destinatariosApi from "./routes/destinatarios.api";
+import usuariosApi from "./routes/usuarios.api";
 
 const app = express();
 
@@ -15,5 +16,6 @@ app.use(express.json());
 
 // Routes
 app.use("/api/destinatarios", destinatariosApi );
+app.use("/api/usuarios", usuariosApi);
 
 export default app;

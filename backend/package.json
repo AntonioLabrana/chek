@@ -7,8 +7,8 @@
     "babel-node": "babel-node --presets=@babel/preset-env",
     "dev": "nodemon --exec npm run babel-node src/index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["Check"],
+  "author": "Antonio Labraña",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.1",
