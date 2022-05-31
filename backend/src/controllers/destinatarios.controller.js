@@ -39,7 +39,9 @@ const addDestinatario = async (request, response) => {
         if( !request.body.banco ) response.status(400).json({message:"Banco no puede estar vacío"});
         if( !request.body.tipocuenta ) response.status(400).json({message:"Tipo Cuenta no puede estar vacío"});
         if( !request.body.numerocuenta ) response.status(400).json({message:"Numero Cuenta no puede estar vacío"});        
-           
+        
+        request.body.telefono.replaceAll(" ", "");
+
         const connection = await getConnection();
         const result = await connection.query("INSERT INTO destinatarios SET ?", request.body);       
         
@@ -54,6 +56,8 @@ const addDestinatario = async (request, response) => {
 const updateDestinatario = async (request, response) => {
     try{
         if( !request || !request.params || !request.body ) response.status(400).json({message:"Request vacío"});
+        
+        request.body.telefono.replaceAll(" ", "");
 
         const { id } = request.params;
         const connection = await getConnection();        

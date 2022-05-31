@@ -17,4 +17,20 @@
     padding-top: 5%;
     padding-bottom: 5%;
 }
-  
+
+.topGrid{
+    border-radius: 10px;
+    background-color:cornflowerblue;
+    margin-bottom: 10px;
+    padding: 10px;
+    color: whitesmoke;
+}
+
+.col-md-2, .col-md-1{
+    align-items: center;
+    display: flex;
+    justify-content: center;    
+    margin: 0 auto;    
+    margin-bottom: 10px;
+    text-align: center;
+}
