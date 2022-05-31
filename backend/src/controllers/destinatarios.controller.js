@@ -5,11 +5,10 @@ const getDestinatarios = async (request, response) => {
         const connection = await getConnection();
         const result = await connection.query("SELECT * FROM destinatarios");
 
-        response.json(result);
+        response.status(200).json(result);
     }
     catch(error){
-        response.status(500);
-        response.send(error.message);
+        response.status(500).json({message:error.message});
     }
 };
 
@@ -21,11 +20,10 @@ const getDestinatario = async (request, response) => {
         const connection = await getConnection();        
         const result = await connection.query("SELECT * FROM destinatarios WHERE id = ?", id);
 
-        response.json(result);
+        response.status(200).json(result);
     }
     catch(error){
-        response.status(500);
-        response.send(error.message);
+        response.status(500).json({message:error.message});
     }
 };
 
@@ -45,7 +43,7 @@ const addDestinatario = async (request, response) => {
         const connection = await getConnection();
         const result = await connection.query("INSERT INTO destinatarios SET ?", request.body);       
         
-        response.json(request.body);
+        response.status(200).json({message:"Destinatario agregado"});
     }
     catch(error){
         response.status(500);
@@ -65,7 +63,7 @@ const updateDestinatario = async (request, response) => {
 
         if( !result || result.length === 0 ) response.status(404).json({message:"No es posible actualizar. Destinatario no encontrado"});
 
-        response.json(result);
+        response.status(200).json({message:"Destinatario actualizado"});
     }
     catch(error){
         response.status(500);
@@ -80,11 +78,11 @@ const deleteDestinatario = async (request, response) => {
 
         const { id } = request.params;
         const connection = await getConnection();        
-        const result = await connection.query("DELETE FROM destinatarios WHERE nombre = ?", id);
+        const result = await connection.query("DELETE FROM destinatarios WHERE id = ?", id);
 
         if( !result || result.length === 0 ) response.status(404).json({message:"No es posible eliminar. Destinatario no encontrado"});
 
-        response.json(result);
+        response.status(200).json({message:"Destinatario eliminado"});
     }
     catch(error){
         response.status(500);

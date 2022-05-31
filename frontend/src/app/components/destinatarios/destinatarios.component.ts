@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DestinatariosService } from 'src/app/services/destinatarios.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-destinatarios',
@@ -11,7 +12,8 @@ export class DestinatariosComponent implements OnInit {
   destinatarios: any = [];
 
   constructor(
-    private destService: DestinatariosService
+    private destService: DestinatariosService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -39,10 +41,20 @@ export class DestinatariosComponent implements OnInit {
   updateDestinatario(dest:any){
     const jsonBody = JSON.stringify(dest);
     console.log( jsonBody );
-    this.destService.updateDestinatario(dest.id, jsonBody).subscribe();
+    this.destService.updateDestinatario(dest.id, jsonBody).subscribe(
+      response => {
+        alert(response.message);
+      }
+    );
   }
 
   deleteDestinatario(id:number){
-    this.destService.deleteDestinatario(id).subscribe();
+    this.destService.deleteDestinatario(id).subscribe(
+      response => {
+        alert(response.message);
+      }
+    );
+
+    this.router.navigate(['destinatarios']);
   }
 }

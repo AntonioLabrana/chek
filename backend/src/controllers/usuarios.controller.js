@@ -11,17 +11,16 @@ const getUsuario = async (request, response) => {
         const connection = await getConnection();   
         const sql = 'SELECT usuario FROM '+ process.env.LOGIN +' WHERE usuario = ? AND contrasena = ?';        
         const result = await connection.query(sql, [usuario, contrasena]) || [];
-
-        if( result.length === 0 ) response.status(404).json({message:"Usuario no encontrado"});
         
+        if( !result || result.length === 0 ) response.status(404).json({message:"Usuario no encontrado"});
+
         let data = JSON.stringify(result[0]);
         let token = jwt.sign(data, process.env.KEY);
-
+        console.log(token);
         response.status(200).json({token});
     }
     catch(error){
-        response.status(500);
-        response.send(error.message);
+        response.status(500).json({message: error.message});
     }
 };
 
