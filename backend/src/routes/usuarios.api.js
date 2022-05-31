@@ -3,6 +3,6 @@ import { methods as usuariosController } from "../controllers/usuarios.controlle
 
 const login = Router();
 
-login.get("/", usuariosController.getUsuario);
+login.post("/", usuariosController.getUsuario);
 
 export default login;

@@ -6,6 +6,7 @@ import destinatariosApi from "./routes/destinatarios.api";
 import usuariosApi from "./routes/usuarios.api";
 
 const app = express();
+const cors = require('cors');
 
 // Settings
 app.set("port", 9090);
@@ -13,6 +14,7 @@ app.set("port", 9090);
 // Middlewares
 app.use( morgan("dev") );
 app.use(express.json());
+app.use(cors());
 
 // Routes
 app.use("/api/destinatarios", destinatariosApi );

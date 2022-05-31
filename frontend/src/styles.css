@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+.login{
+    width: 30%;
+    height: 40%;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
+    padding: 2%;
+    margin: 0 auto;
+}
+
+.loginContainer{
+    width: 100%;   
+}
+
+.top{
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+  
