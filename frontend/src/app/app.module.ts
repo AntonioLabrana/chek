@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 // Providers
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     LoginComponent,
     DestinatariosComponent,
     EditarDestinatarioComponent,
-    CrearDestinatarioComponent
+    CrearDestinatarioComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,

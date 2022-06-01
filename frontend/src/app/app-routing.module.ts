@@ -6,9 +6,11 @@ import { EditarDestinatarioComponent } from './components/destinatarios/editar-d
 import { CrearDestinatarioComponent } from './components/destinatarios/crear-destinatario/crear-destinatario.component';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './guards/auth.guard';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 const routes: Routes = [
   { path: 'app', component:AppComponent, canActivate:[AuthGuard] },
+  { path: 'inicio', component:InicioComponent, canActivate:[AuthGuard] },
   { path: 'destinatarios', component:DestinatariosComponent, canActivate:[AuthGuard] },
   { path: 'editarDestinatario', component:EditarDestinatarioComponent },
   { path: 'crearDestinatario', component:CrearDestinatarioComponent },
