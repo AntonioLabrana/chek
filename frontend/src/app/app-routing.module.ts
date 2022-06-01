@@ -7,11 +7,13 @@ import { CrearDestinatarioComponent } from './components/destinatarios/crear-des
 import { AppComponent } from './app.component';
 import { AuthGuard } from './guards/auth.guard';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { TransferenciasComponent } from './components/transferencias/transferencias/transferencias.component';
 
 const routes: Routes = [
   { path: 'app', component:AppComponent, canActivate:[AuthGuard] },
   { path: 'inicio', component:InicioComponent, canActivate:[AuthGuard] },
   { path: 'destinatarios', component:DestinatariosComponent, canActivate:[AuthGuard] },
+  { path: 'transferencias', component:TransferenciasComponent, canActivate:[AuthGuard] },
   { path: 'editarDestinatario', component:EditarDestinatarioComponent },
   { path: 'crearDestinatario', component:CrearDestinatarioComponent },
   { path: 'login', component:LoginComponent },

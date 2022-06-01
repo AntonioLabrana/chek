@@ -1,0 +1,32 @@
+<div class="loginContainer">    
+    <div class="row topGrid">
+
+        <div class="banner" style="height: 100px;">
+            <h4 class="h4">Historial Transferencias</h4>
+          </div>
+
+        <div class="col-md-2">Destinatario</div>   
+        <div class="col-md-2">Run</div>         
+        <div class="col-md-2">Banco</div>
+        <div class="col-md-2">Cuenta</div>
+        <div class="col-md-1">Monto</div>
+    </div>
+
+    <div *ngFor="let trans of historialTransferencias" class="row rowGrid">
+        <div class="col-md-2">{{trans.destinatario}}</div>   
+        <div class="col-md-2">{{trans.run}}</div> 
+        <div class="col-md-2">{{trans.banco}}</div>
+        <div class="col-md-2">{{trans.cuenta}}</div>  
+        <div class="col-md-1">{{trans.monto}}</div>     
+        <hr>                  
+    </div>  
+</div>
+
+<div class="col-12">
+    <button class="btn btn-primary" type="submit" (click)="createTransferencia()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cash-stack" viewBox="0 0 16 16">
+            <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+            <path d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z"/>
+          </svg>
+        Nueva Transferencia</button>
+</div>

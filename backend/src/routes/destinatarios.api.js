@@ -1,12 +1,12 @@
-import { response, Router } from "express";
+import { Router } from "express";
 import { methods as destinatariosController } from "../controllers/destinatarios.controller";
 
-const router = Router();
+const trans = Router();
 
-router.get("/", destinatariosController.getDestinatarios);
-router.get("/:id", destinatariosController.getDestinatario);
-router.post("/", destinatariosController.addDestinatario)
-router.delete("/:id", destinatariosController.deleteDestinatario);
-router.put("/:id", destinatariosController.updateDestinatario);
+trans.get("/", destinatariosController.getDestinatarios);
+trans.get("/:id", destinatariosController.getDestinatario);
+trans.post("/", destinatariosController.addDestinatario)
+trans.delete("/:id", destinatariosController.deleteDestinatario);
+trans.put("/:id", destinatariosController.updateDestinatario);
 
-export default router;
+export default trans;
