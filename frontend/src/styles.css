@@ -2,7 +2,7 @@
 .login{
     width: 30%;
     height: 40%;
-    border-radius: 20px;
+    border-radius: 10px;
     text-align: center;
     box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
     padding: 2%;
@@ -50,4 +50,9 @@
 .ng-touched.ng-invalid:is(input, textarea, select),
 .ng-dirty.ng-invalid:is(input, textarea, select){
     outline: 2px solid #bd0c0c;
+}
+
+.btn-primary,.btn-primary:disabled,.banner,.topGrid{
+    background-color: blueviolet;
+    outline: 2px solid blueviolet;    
 }
