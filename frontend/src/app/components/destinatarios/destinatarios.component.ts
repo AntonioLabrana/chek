@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DestinatariosService } from 'src/app/services/destinatarios.service';
 import { Router } from '@angular/router';
 
@@ -11,17 +11,15 @@ export class DestinatariosComponent implements OnInit {
 
   destinatarios: any = [];
 
+  @Input() editarDestinatario:any;
+
   constructor(
     private destService: DestinatariosService,
-    private router: Router
+    private router: Router    
   ) {}
 
   ngOnInit(): void {
     this.getDestinatarios();
-  }
-
-  getBancos(){
-    
   }
 
   getDestinatarios(){   
@@ -32,29 +30,21 @@ export class DestinatariosComponent implements OnInit {
     );
   }
 
-  createDestinatario(dest:any){
-    const jsonBody = JSON.stringify(dest);
-    
-    this.destService.createDestinatario(jsonBody).subscribe();
+  createDestinatario(){
+    this.router.navigate(['crearDestinatario']);
   }
 
   updateDestinatario(dest:any){
-    const jsonBody = JSON.stringify(dest);
-    console.log( jsonBody );
-    this.destService.updateDestinatario(dest.id, jsonBody).subscribe(
-      response => {
-        alert(response.message);
-      }
-    );
+    localStorage.setItem('editarDest', JSON.stringify(dest))
+    this.router.navigate(['editarDestinatario']);
   }
 
   deleteDestinatario(id:number){
     this.destService.deleteDestinatario(id).subscribe(
       response => {
         alert(response.message);
+        this.router.navigate(['destinatarios']);
       }
-    );
-
-    this.router.navigate(['destinatarios']);
+    );    
   }
 }

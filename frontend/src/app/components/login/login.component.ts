@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -9,10 +10,10 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  credencial = {
-    usuario: '',
-    contrasena: ''
-  }
+  loginForm = new FormGroup({
+    usuario: new FormControl('', [Validators.required]),
+    contrasena: new FormControl('', [Validators.required])
+  });
 
   constructor( 
     private authService: AuthService ,
@@ -23,11 +24,21 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this.authService.login(this.credencial).subscribe(
+    console.log( this.loginForm.value );
+
+    this.authService.login(this.loginForm.value).subscribe(
       response => {
         localStorage.setItem('token', response.token);
         this.router.navigate(['app']);
       }
     );
+  }
+
+  get usuarioControl(): FormControl{
+    return this.loginForm.get('usuario') as FormControl;
+  }
+
+  get contrasenaControl(): FormControl{
+    return this.loginForm.get('contrasena') as FormControl;
   }
 }

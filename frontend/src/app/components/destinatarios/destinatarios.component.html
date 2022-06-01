@@ -1,13 +1,13 @@
 <div class="loginContainer">    
-    <div class="row topGrid">
-        <div class="col-sm-2">NOMBRE</div>   
-        <div class="col-sm-2">RUN</div> 
-        <div class="col-sm-2">TELEFONO</div>
-        <div class="col-sm-1">BANCO</div>
-        <div class="col-sm-1">CUENTA</div>
-        <div class="col-sm-2">NUMERO CUENTA</div>
-        <div class="col-sm-1">EDITAR</div>
-        <div class="col-sm-1">ELIMINAR</div>
+    <div class="row topGrid btn-primary disabled">
+        <div class="col-sm-2">Nombre</div>   
+        <div class="col-sm-2">Run</div> 
+        <div class="col-sm-2">Telefono</div>
+        <div class="col-sm-1">Banco</div>
+        <div class="col-sm-1">Cuenta</div>
+        <div class="col-sm-2">Numero</div>
+        <div class="col-sm-1">Editar</div>
+        <div class="col-sm-1">Eliminar</div>
     </div>
 
     <div *ngFor="let dest of destinatarios" class="row rowGrid">
@@ -34,4 +34,8 @@
         </div>
         <hr>                  
     </div>  
+</div>
+
+<div class="col-12">
+    <button class="btn btn-primary" type="submit" (click)="createDestinatario()">Crear Destinatario</button>
 </div>

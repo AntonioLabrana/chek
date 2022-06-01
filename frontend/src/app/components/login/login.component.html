@@ -1,16 +1,30 @@
 <div class="loginContainer">
-  <form class="login">
+  <form [formGroup]="loginForm" class="login">
     <h4 class="top">Iniciar Sesión</h4>
-    <div class="mb-">
-      <label for="exampleInputEmail1" class="form-label">Usuario:</label>
-      <input [(ngModel)]="credencial.usuario" [ngModelOptions]="{standalone: true}" 
-      type="text" class="form-control" id="exampleInputEmail1">    
-    </div>
+
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Contraseña:</label>
-      <input [(ngModel)]="credencial.contrasena" [ngModelOptions]="{standalone: true}" 
-      type="password" class="form-control" id="exampleInputPassword1">
+      <label for="exampleInputEmail1" class="form-label">Usuario:</label>     
+      <input type="text" class="form-control" formControlName="usuario">      
+
+      <div class="errors-container" *ngIf="usuarioControl.invalid && (usuarioControl.touched || usuarioControl.dirty)">
+        <p class="error-msg" *ngIf="usuarioControl.hasError('required')">El campo es obligatorio</p>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Contraseña:</label>      
+      <input type="password" class="form-control" formControlName="contrasena">
+      
+      <div class="errors-container" *ngIf="contrasenaControl.invalid && (contrasenaControl.touched || contrasenaControl.dirty)">
+        <p class="error-msg" *ngIf="contrasenaControl.hasError('required')">El campo es obligatorio</p>
+      </div>
     </div>    
-    <button type="submit" class="btn btn-primary" (click)="login()">Ingresar</button>
+    
+    <button type="submit" class="btn btn-primary" 
+            (click)="login()" [disabled]="loginForm.invalid">
+      Ingresar
+    </button>
   </form>
 </div>
+
+

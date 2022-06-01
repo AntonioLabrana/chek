@@ -54,8 +54,6 @@ const addDestinatario = async (request, response) => {
 const updateDestinatario = async (request, response) => {
     try{
         if( !request || !request.params || !request.body ) response.status(400).json({message:"Request vacío"});
-        
-        request.body.telefono.replaceAll(" ", "");
 
         const { id } = request.params;
         const connection = await getConnection();        

@@ -19,11 +19,23 @@
 }
 
 .topGrid{
-    border-radius: 10px;
-    background-color:cornflowerblue;
+    border-radius: 5px;    
     margin-bottom: 10px;
     padding: 10px;
     color: whitesmoke;
+}
+
+.banner{
+    border-radius: 5px;
+    color: whitesmoke;
+    display: flex;
+}
+
+.h4{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 3%;
 }
 
 .col-md-2, .col-md-1{
@@ -33,4 +45,9 @@
     margin: 0 auto;    
     margin-bottom: 10px;
     text-align: center;
+}
+
+.ng-touched.ng-invalid:is(input, textarea, select),
+.ng-dirty.ng-invalid:is(input, textarea, select){
+    outline: 2px solid #bd0c0c;
 }

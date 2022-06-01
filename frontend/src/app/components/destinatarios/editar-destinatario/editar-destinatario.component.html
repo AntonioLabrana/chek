@@ -1,0 +1,72 @@
+<form [formGroup]="editForm" class="row g-3 needs-validation">
+    
+    <div class="banner btn-primary disabled" style="height: 100px;">
+      <h4 class="h4">Actualizar Destinatario</h4>
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label">Nombre</label>
+      <input type="text" class="form-control" formControlName="nombre">
+
+      <div class="errors-container" *ngIf="nombreControl.invalid && (nombreControl.touched || nombreControl.dirty)">
+        <p class="error-msg" *ngIf="nombreControl.hasError('required')">El campo es obligatorio</p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label">RUN</label>
+      <input type="text" class="form-control" formControlName="run">
+
+      <div class="errors-container" *ngIf="runControl.invalid && (runControl.touched || runControl.dirty)">
+        <p class="error-msg" *ngIf="runControl.hasError('required')">El campo es obligatorio</p>
+      </div>
+    </div>  
+
+    <div class="col-md-4">
+      <label class="form-label">Telefono</label>
+      <input type="text" class="form-control" formControlName="telefono">
+
+      <div class="errors-container" *ngIf="telefonoControl.invalid && (telefonoControl.touched || telefonoControl.dirty)">
+        <p class="error-msg" *ngIf="telefonoControl.hasError('required')">El campo es obligatorio</p>
+      </div>
+    </div>  
+
+    <div class="col-md-4">
+      <label class="form-label">Banco</label>
+      <select class="form-select" formControlName="banco">        
+        <option *ngFor="let bank of bancos" [value]="bank">{{bank}}</option>
+      </select> 
+
+      <div class="errors-container" *ngIf="bancoControl.invalid && (bancoControl.touched || bancoControl.dirty)">
+        <p class="error-msg" *ngIf="bancoControl.hasError('required')">El campo es obligatorio</p>
+      </div>
+    </div>  
+
+    <div class="col-md-4">
+      <label class="form-label">Tipo Cuenta</label>
+      <select class="form-select" formControlName="tipocuenta">        
+        <option value="Corriente">Corriente</option>
+        <option value="Vista">Vista</option>
+        <option value="Chequera Electrónica">Chequera Electrónica</option>
+      </select> 
+
+      <div class="errors-container" *ngIf="tipoCuentaControl.invalid && (tipoCuentaControl.touched || tipoCuentaControl.dirty)">
+        <p class="error-msg" *ngIf="tipoCuentaControl.hasError('required')">El campo es obligatorio</p>
+      </div>
+    </div> 
+
+    <div class="col-md-4">
+      <label class="form-label">Numero Cuenta</label>
+      <input type="number" class="form-control" formControlName="numerocuenta">
+
+      <div class="errors-container" *ngIf="numeroCuentaControl.invalid && (numeroCuentaControl.touched || numeroCuentaControl.dirty)">
+        <p class="error-msg" *ngIf="numeroCuentaControl.hasError('required')">El campo es obligatorio</p>
+      </div>
+    </div>  
+
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit" 
+      (click)="editDestinatario()" [disabled]="editForm.invalid">
+      Actualizar</button>
+    </div>
+  </form>

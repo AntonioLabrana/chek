@@ -6,12 +6,18 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DestinatariosService {
-
   private url = 'http://localhost:9090/api/destinatarios';
+  private banks = 'https://bast.dev/api/banks.php';
 
   constructor(
     private http:HttpClient
   ) { }
+
+  getBancos(): Observable<any>{
+    const banks: any = this.http.get( this.banks );
+
+    return banks;
+  }
 
   getDestinatarios(): Observable<any>{
     return this.http.get( this.url );
