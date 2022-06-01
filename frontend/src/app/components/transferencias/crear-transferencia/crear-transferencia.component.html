@@ -1,0 +1,63 @@
+<form [formGroup]="transForm" class="row g-3 needs-validation">
+    
+    <div class="banner" style="height: 100px;">
+      <h4 class="h4">Transferencia a Destinatario</h4>
+    </div>
+
+    <div class="row-sm">
+        <label class="form-label">Destinatario</label>
+        <input id="destina" class="form-control" list="datalistOptions" formControlName="destinatario" 
+               placeholder="Escribe para buscar..." formControlName="destinatario">   
+        
+        <datalist id="datalistOptions">
+            <option *ngFor="let dest of destinatarios" [value]="dest.nombre">{{dest.nombre}}</option>
+        </datalist>
+                
+        <div class="errors-container" *ngIf="destinatarioControl.invalid && (destinatarioControl.touched || destinatarioControl.dirty)">
+            <p class="error-msg" *ngIf="destinatarioControl.hasError('required')">El campo es obligatorio</p>
+        </div>
+    </div>    
+
+    <div class="miniContainer" >
+        <div class="row">
+            <h5 class="col" style="text-align: center;">Detalle Destinatario</h5>                     
+        </div>
+        <div class="row">
+            <label class="col">Nombre:</label>
+            <label class="col">{{ contacto.nombre }}</label>            
+        </div>
+        <div class="row">
+            <label class="col">Correo:</label>
+            <label class="col">{{ contacto.correo }}</label>            
+        </div>
+        <div class="row">
+            <label class="col">Banco:</label>
+            <label class="col">{{ contacto.banco }}</label>            
+        </div>
+        <div class="row">
+            <label class="col">Cuenta:</label>
+            <label class="col">{{ contacto.cuenta }}</label>            
+        </div>
+    </div>
+  
+    <div class="row-sm">
+      <label class="form-label">Monto</label>
+      <input type="number" class="form-control" formControlName="monto">
+  
+      <div class="errors-container" *ngIf="montoControl.invalid && (montoControl.touched || montoControl.dirty)">
+        <p class="error-msg" *ngIf="montoControl.hasError('required')">El campo es obligatorio</p>
+      </div>
+    </div>  
+  
+    <div class="col-12">
+      <button class="btn" type="submit" 
+      (click)="createTransferencia()" [disabled]="transForm.invalid">
+  
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+        <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
+      </svg>
+        Transferir
+      </button>
+    </div>
+  </form>
+  

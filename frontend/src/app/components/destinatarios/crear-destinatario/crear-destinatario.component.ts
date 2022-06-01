@@ -15,10 +15,10 @@ export class CrearDestinatarioComponent implements OnInit {
   createForm = new FormGroup({
     nombre: new FormControl('', [Validators.required]),
     run: new FormControl('', [Validators.required]),
-    telefono: new FormControl('', [Validators.required]),
+    correo: new FormControl('', [Validators.required, Validators.email]),
     banco: new FormControl('', [Validators.required]),
     tipocuenta: new FormControl('', [Validators.required]),
-    numerocuenta: new FormControl('', [Validators.required])
+    numerocuenta: new FormControl('', [Validators.required, Validators.pattern('^[0-9]+[0-9]*$')])
   });
 
   constructor(
@@ -57,8 +57,8 @@ export class CrearDestinatarioComponent implements OnInit {
     return this.createForm.get('run') as FormControl;
   }
 
-  get telefonoControl(): FormControl{
-    return this.createForm.get('telefono') as FormControl;
+  get correoControl(): FormControl{
+    return this.createForm.get('correo') as FormControl;
   }
 
   get bancoControl(): FormControl{

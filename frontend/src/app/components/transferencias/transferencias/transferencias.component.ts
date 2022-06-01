@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TransferenciasService } from 'src/app/services/transferencias.service';
 
 @Component({
@@ -11,7 +12,8 @@ export class TransferenciasComponent implements OnInit {
   historialTransferencias:any = [];
 
   constructor(
-    private transferenciasService:TransferenciasService
+    private transferenciasService:TransferenciasService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -19,7 +21,7 @@ export class TransferenciasComponent implements OnInit {
   }
 
   createTransferencia(){   
-     
+    this.router.navigate(['crearTransferencia']); 
   }
 
   getHistorialTransferencias(){

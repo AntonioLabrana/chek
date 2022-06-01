@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { TransferenciasComponent } from './components/transferencias/transferencias/transferencias.component';
+import { CrearTransferenciaComponent } from './components/transferencias/crear-transferencia/crear-transferencia.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TransferenciasComponent } from './components/transferencias/transferenc
     EditarDestinatarioComponent,
     CrearDestinatarioComponent,
     InicioComponent,
-    TransferenciasComponent
+    TransferenciasComponent,
+    CrearTransferenciaComponent
   ],
   imports: [
     BrowserModule,

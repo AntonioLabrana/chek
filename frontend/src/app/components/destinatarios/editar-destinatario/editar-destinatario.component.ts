@@ -26,10 +26,10 @@ export class EditarDestinatarioComponent implements OnInit {
     this.editForm = new FormGroup({
         nombre: new FormControl(this.jsonModel.nombre, [Validators.required]),
         run: new FormControl(this.jsonModel.run, [Validators.required]),
-        telefono: new FormControl(this.jsonModel.telefono, [Validators.required]),
+        correo: new FormControl(this.jsonModel.correo, [Validators.required, Validators.email]),
         banco: new FormControl(this.jsonModel.banco, [Validators.required]),
         tipocuenta: new FormControl(this.jsonModel.tipocuenta, [Validators.required]),
-        numerocuenta: new FormControl(this.jsonModel.numerocuenta, [Validators.required])
+        numerocuenta: new FormControl(this.jsonModel.numerocuenta, [Validators.required, Validators.pattern('^[0-9]+[0-9]*$')])
     });
 
     this.destService.getBancos().subscribe(
@@ -63,8 +63,8 @@ export class EditarDestinatarioComponent implements OnInit {
     return this.editForm.get('run') as FormControl;
   }
 
-  get telefonoControl(): FormControl{
-    return this.editForm.get('telefono') as FormControl;
+  get correoControl(): FormControl{
+    return this.editForm.get('correo') as FormControl;
   }
 
   get bancoControl(): FormControl{

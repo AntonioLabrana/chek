@@ -33,7 +33,7 @@ const addDestinatario = async (request, response) => {
         if( !request.body ) response.status(400).json({message:"Request vacío"});
         if( !request.body.nombre ) response.status(400).json({message:"Nombre no puede estar vacío"});
         if( !request.body.run ) response.status(400).json({message:"Run no puede estar vacío"});
-        if( !request.body.telefono ) response.status(400).json({message:"Telefono no puede estar vacío"});
+        if( !request.body.correo ) response.status(400).json({message:"Telefono no puede estar vacío"});
         if( !request.body.banco ) response.status(400).json({message:"Banco no puede estar vacío"});
         if( !request.body.tipocuenta ) response.status(400).json({message:"Tipo Cuenta no puede estar vacío"});
         if( !request.body.numerocuenta ) response.status(400).json({message:"Numero Cuenta no puede estar vacío"});        

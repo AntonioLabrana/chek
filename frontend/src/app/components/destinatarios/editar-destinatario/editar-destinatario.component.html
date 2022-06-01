@@ -23,11 +23,11 @@
     </div>  
 
     <div class="col-md-4">
-      <label class="form-label">Telefono</label>
-      <input type="text" class="form-control" formControlName="telefono">
+      <label class="form-label">Correo</label>
+      <input type="text" class="form-control" formControlName="correo">
 
-      <div class="errors-container" *ngIf="telefonoControl.invalid && (telefonoControl.touched || telefonoControl.dirty)">
-        <p class="error-msg" *ngIf="telefonoControl.hasError('required')">El campo es obligatorio</p>
+      <div class="errors-container" *ngIf="correoControl.invalid && (correoControl.touched || correoControl.dirty)">
+        <p class="error-msg" *ngIf="correoControl.hasError('required')">El campo es obligatorio</p>
       </div>
     </div>  
 
@@ -65,7 +65,7 @@
     </div>  
 
     <div class="col-12">
-      <button class="btn btn-primary" type="submit" 
+      <button class="btn" type="submit" 
       (click)="editDestinatario()" [disabled]="editForm.invalid">
 
       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">

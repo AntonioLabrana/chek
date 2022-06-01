@@ -52,7 +52,17 @@
     outline: 2px solid #bd0c0c;
 }
 
-.btn-primary,.btn-primary:disabled,.banner,.topGrid{
+.btn-primary,.btn-primary:disabled,.banner,.topGrid, .btn{
     background-color: blueviolet;
     outline: 2px solid blueviolet;    
+    color:white;
+}
+
+.miniContainer{
+    margin: 20px;
+    padding: 20px;
+    outline: 1px solid rgb(202, 202, 202);
+    width: 400px;
+    border-radius: 10px;
+    overflow: auto;
 }

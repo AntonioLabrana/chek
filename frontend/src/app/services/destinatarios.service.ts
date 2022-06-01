@@ -14,9 +14,7 @@ export class DestinatariosService {
   ) { }
 
   getBancos(): Observable<any>{
-    const banks: any = this.http.get( this.banks );
-
-    return banks;
+    return this.http.get( this.banks );
   }
 
   getDestinatarios(): Observable<any>{
