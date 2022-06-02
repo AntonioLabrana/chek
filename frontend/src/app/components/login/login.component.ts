@@ -26,9 +26,13 @@ export class LoginComponent implements OnInit {
   login(){
     this.authService.login(this.loginForm.value).subscribe(
       response => {
+        if( response.token === '' ) alert("Usuario o Contraseña incorrectos");
+          
         localStorage.setItem('nombre', this.loginForm.value.usuario);
         localStorage.setItem('token', response.token);
-        
+
+        alert("Bienvenido a CHEK");
+          
         this.router.navigate(['inicio']);
       }
     );

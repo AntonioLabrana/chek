@@ -9,18 +9,45 @@ const getUsuario = async (request, response) => {
 
         const { usuario, contrasena } = request.body;
         const connection = await getConnection();   
-        const sql = 'SELECT usuario FROM '+ process.env.LOGIN +' WHERE usuario = ? AND contrasena = ?';        
-        const result = await connection.query(sql, [usuario, contrasena]) || [];
-        
-        if( !result || result.length === 0 ) response.status(404).json({message:"Usuario no encontrado"});
 
-        let data = JSON.stringify(result[0]);
-        let token = jwt.sign(data, process.env.KEY);
+        const sqlSelectExists = "SELECT IF( EXISTS(SELECT usuario FROM "+ process.env.LOGIN +" WHERE usuario = ? AND contrasena = ?), 'LOGIN', 'NO_EXISTS') as RESULT;";
+        //const sql = 'SELECT usuario FROM '+ process.env.LOGIN +' WHERE usuario = ? AND contrasena = ?';
+        const result = await connection.query(sqlSelectExists, [usuario, contrasena], 
+                (error, rows) => {
+                    if( !error ){
+                        var exists = rows[0].RESULT;                                         
+
+                        if( exists === 'NO_EXISTS' ){    
+                            let token = '';    
+                            console.log("NO EXISTS TOKEN: " + token);
+                            response.status(200).json({token});
+                        }
+                        else{
+                            
+                            let data = JSON.stringify( usuario );
+                            let token = jwt.sign(data, process.env.KEY);
+                            console.log("TOKEN: " + token);
+                            response.status(200).json({token});
+                        }
+                    }
+                    else{
+                        response.status(500).json({message:"Ocurrió en el servidor"});
+                    }
+                }
+            );
+
+        //var res = result[0].RESULT;
+        //console.log("RESULT: ", res );
+
+        //if( res == 'NO_EXISTS' ) response.status(404).json({message:"Usuario o Contraseña incorrectos"});
+
+        // let data = JSON.stringify( usuario + Date.now() );
+        // let token = jwt.sign(data, process.env.KEY);
         
-        response.status(200).json({token});
+        // response.status(200).json({token});
     }
     catch(error){
-        response.status(500).json({message: error.message});
+        response.status(500).json({message:"Usuario o Contraseña incorrectos"});
     }
 };
 
