@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioComponent implements OnInit {
   
-  nombre:any = '';
+  private nombre:any;
 
   constructor() { }
 
@@ -15,4 +15,7 @@ export class InicioComponent implements OnInit {
     this.nombre = localStorage.getItem('nombre');
   }
 
+  getName(){
+    return this.nombre;
+  }
 }

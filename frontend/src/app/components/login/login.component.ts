@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
       response => {
         localStorage.setItem('nombre', this.loginForm.value.usuario);
         localStorage.setItem('token', response.token);
+        
         this.router.navigate(['inicio']);
       }
     );

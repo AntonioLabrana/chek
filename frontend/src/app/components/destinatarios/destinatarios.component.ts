@@ -11,8 +11,6 @@ export class DestinatariosComponent implements OnInit {
 
   destinatarios: any = [];
 
-  @Input() editarDestinatario:any;
-
   constructor(
     private destService: DestinatariosService,
     private router: Router    

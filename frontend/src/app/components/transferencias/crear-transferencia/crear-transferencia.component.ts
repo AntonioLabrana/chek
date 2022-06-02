@@ -13,8 +13,6 @@ import { TransferenciasService } from 'src/app/services/transferencias.service';
 })
 export class CrearTransferenciaComponent implements OnInit {
 
-  destinatarios:any = [];  
-
   contacto = {
     nombre:'',
     run:'',
@@ -56,19 +54,11 @@ export class CrearTransferenciaComponent implements OnInit {
   getDestinatarios(){
     this.destService.getDestinatarios().subscribe(
       (data: any) => {
-        //console.log("data: ", data);
         this.options = data;
         const desti = this.transForm.get('destinatario') as FormControl;
-        desti.setValue('');
-
-        // data.forEach((element: any) => {
-        //   //console.log("destinatario: ", element);
-        //   this.destinatarios.push(element);
-        //   this.options.push(element);
-        // });
+        desti.setValue('');       
       }
     );
-    //console.log(this.destinatarios);
   }
 
   createTransferencia(){
