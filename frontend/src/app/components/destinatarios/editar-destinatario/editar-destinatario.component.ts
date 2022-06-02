@@ -35,11 +35,8 @@ export class EditarDestinatarioComponent implements OnInit {
     this.destService.getBancos().subscribe(
       (data: any) => {
         data.banks.forEach((element: any) => {
-          //console.log("element: ", element.name);
           this.bancos.push(element.name);
         });
-
-        //console.log("bancos: ", this.bancos);
       }
     );
   }

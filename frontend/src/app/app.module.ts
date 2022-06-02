@@ -18,6 +18,10 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { TransferenciasComponent } from './components/transferencias/transferencias/transferencias.component';
 import { CrearTransferenciaComponent } from './components/transferencias/crear-transferencia/crear-transferencia.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatAutocompleteModule} from '@angular/material/autocomplete'; 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input'
 
 @NgModule({
   declarations: [
@@ -35,7 +39,11 @@ import { CrearTransferenciaComponent } from './components/transferencias/crear-t
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule    
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     { provide:JWT_OPTIONS, useValue:JWT_OPTIONS },

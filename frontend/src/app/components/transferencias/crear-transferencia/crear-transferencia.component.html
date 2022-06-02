@@ -4,7 +4,7 @@
       <h4 class="h4">Transferencia a Destinatario</h4>
     </div>
 
-    <div class="row-sm">
+    <div class="col-md-3">
         <label class="form-label">Destinatario</label>
         <div class="input-group mb-3">
             <span class="input-group-text">
@@ -12,42 +12,53 @@
                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                   </svg>
             </span>
-            <input id="destina" class="form-control" list="datalistOptions"  placeholder="Escribe para buscar..." 
+            <!-- <input id="destina" class="form-control" list="datalistOptions" placeholder="Escribe para buscar..." 
                 formControlName="destinatario" formControlName="destinatario">
 
-            <datalist id="datalistOptions">
-                <option *ngFor="let dest of destinatarios" [value]="dest.nombre"></option>
-            </datalist>
+            <datalist id="datalistOptions" (change)="onSelect($event)">
+                <option *ngFor="let dest of options" [value]="dest.nombre" [id]="dest.id"></option>
+            </datalist> -->
+
+            <mat-form-field style="height: 40px; margin-left:10px">
+                <input id="destina" class="form-control" type="text" formControlName="destinatario"               
+                matInput required [matAutocomplete]="autoGroup" placeholder="Escribe para buscar...">
+
+                <mat-autocomplete autoActiveFirstOption #autoGroup="matAutocomplete" (optionSelected)="onSelect($event)">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option.nombre" [id]="option">
+                        {{option.nombre}}
+                    </mat-option>            
+                </mat-autocomplete>
+            </mat-form-field>
         </div>
 
         <div class="errors-container" *ngIf="destinatarioControl.invalid && (destinatarioControl.touched || destinatarioControl.dirty)">
             <p class="error-msg" *ngIf="destinatarioControl.hasError('required')">El campo es obligatorio</p>
         </div>
-    </div>    
+    </div>
 
-    <div class="miniContainer" >
+    <div class="col-md-3 miniContainer" >
         <div class="row">
             <h5 class="col" style="text-align: center;">Detalle Destinatario</h5>                     
         </div>
         <div class="row">
-            <label class="col">Nombre:</label>
+            <label class="col-md-3">Nombre:</label>
             <label class="col">{{ contacto.nombre }}</label>            
         </div>
         <div class="row">
-            <label class="col">Correo:</label>
-            <label class="col">{{ contacto.correo }}</label>            
+            <label class="col-md-3">Run:</label>
+            <label class="col">{{ contacto.run }}</label>            
         </div>
         <div class="row">
-            <label class="col">Banco:</label>
+            <label class="col-md-3">Banco:</label>
             <label class="col">{{ contacto.banco }}</label>            
         </div>
         <div class="row">
-            <label class="col">Cuenta:</label>
+            <label class="col-md-3">Cuenta:</label>
             <label class="col">{{ contacto.cuenta }}</label>            
         </div>
     </div>
-  
-    <div class="row-sm">
+
+    <div class="col-md">
       <label class="form-label">Monto</label>
       <div class="input-group mb-3">
         <span class="input-group-text">$</span>
@@ -57,8 +68,8 @@
       <div class="errors-container" *ngIf="montoControl.invalid && (montoControl.touched || montoControl.dirty)">
         <p class="error-msg" *ngIf="montoControl.hasError('required')">El campo es obligatorio</p>
       </div>
-    </div>  
-  
+    </div>      
+
     <div class="col-12">
       <button class="btn" type="submit" 
       (click)="createTransferencia()" [disabled]="transForm.invalid">

@@ -13,8 +13,9 @@ const getTransferencias = async (request, response) => {
 };
 
 const postTransferencia = async (request, response) => {
+    try{
+        console.log("NODE JS: ", request.body);
 
-    try{              
         if( !request.body ) response.status(400).json({message:"Request vacío"});
         if( !request.body.destinatario ) response.status(400).json({message:"Destinatario no puede estar vacío"});
         if( !request.body.run ) response.status(400).json({message:"Run no puede estar vacío"});        
