@@ -9,7 +9,7 @@ import { TransferenciasService } from 'src/app/services/transferencias.service';
 })
 export class TransferenciasComponent implements OnInit {
 
-  historialTransferencias:any = [];
+  private historialTransferencias:any = [];
 
   constructor(
     private transferenciasService:TransferenciasService,
@@ -30,5 +30,9 @@ export class TransferenciasComponent implements OnInit {
         this.historialTransferencias = response;
       }
     );
+  }
+
+  getTransferencias(){
+    return this.historialTransferencias;
   }
 }

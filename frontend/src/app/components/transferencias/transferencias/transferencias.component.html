@@ -13,7 +13,7 @@
         <div class="col-md-2">Fecha</div>
     </div>
 
-    <div *ngFor="let trans of historialTransferencias" class="row rowGrid">
+    <div *ngFor="let trans of getTransferencias()" class="row rowGrid">
         <div class="col-md-2">{{trans.destinatario}}</div>   
         <div class="col-md-2">{{trans.run}}</div> 
         <div class="col-md-2">{{trans.banco}}</div>

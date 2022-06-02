@@ -16,7 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule } from '@angular/material/autocomplete'; 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { LogoutComponent } from './components/login/logout/logout.component'
+import { LogoutComponent } from './components/login/logout/logout.component';
 
 @NgModule({
   declarations: [
