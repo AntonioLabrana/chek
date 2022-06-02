@@ -54,8 +54,8 @@ export class CrearTransferenciaComponent implements OnInit {
   }
 
   onSelect(event:any){
-    console.log("ON SELECT!!!!!!!!!");
-    alert("on select");
+    console.log("ON SELECT:", event.target.value);
+
   }
 
   // GET FORMS

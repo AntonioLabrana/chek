@@ -4,7 +4,15 @@
 
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Usuario:</label>     
-      <input type="text" class="form-control" formControlName="usuario">      
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+          </svg>
+        </span>
+        <input type="text" class="form-control" formControlName="usuario">  
+      </div>         
 
       <div class="errors-container" *ngIf="usuarioControl.invalid && (usuarioControl.touched || usuarioControl.dirty)">
         <p class="error-msg" *ngIf="usuarioControl.hasError('required')">El campo es obligatorio</p>
@@ -12,8 +20,16 @@
     </div>
 
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Contraseña:</label>      
-      <input type="password" class="form-control" formControlName="contrasena">
+      <label for="exampleInputPassword1" class="form-label">Contraseña:</label>
+      
+      <div class="input-group mb-3">
+        <span class="input-group-text">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+            <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+          </svg>
+        </span>
+        <input type="password" class="form-control" formControlName="contrasena">
+      </div>      
       
       <div class="errors-container" *ngIf="contrasenaControl.invalid && (contrasenaControl.touched || contrasenaControl.dirty)">
         <p class="error-msg" *ngIf="contrasenaControl.hasError('required')">El campo es obligatorio</p>

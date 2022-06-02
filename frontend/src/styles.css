@@ -66,3 +66,7 @@
     border-radius: 10px;
     overflow: auto;
 }
+
+.nav-link{
+    color: blueviolet;
+}
