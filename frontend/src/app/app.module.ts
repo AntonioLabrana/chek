@@ -15,7 +15,8 @@ import { CrearTransferenciaComponent } from './components/transferencias/crear-t
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule } from '@angular/material/autocomplete'; 
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input'
+import { MatInputModule } from '@angular/material/input';
+import { LogoutComponent } from './components/login/logout/logout.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MatInputModule } from '@angular/material/input'
     CrearDestinatarioComponent,
     InicioComponent,
     TransferenciasComponent,
-    CrearTransferenciaComponent
+    CrearTransferenciaComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { TransferenciasComponent } from './components/transferencias/transferencias/transferencias.component';
 import { CrearTransferenciaComponent } from './components/transferencias/crear-transferencia/crear-transferencia.component';
+import { LogoutComponent } from './components/login/logout/logout.component';
 
 const routes: Routes = [
   { path: 'app', component:AppComponent, canActivate:[AuthGuard] },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'transferencias', component:TransferenciasComponent, canActivate:[AuthGuard] },
   { path: 'crearTransferencia', component:CrearTransferenciaComponent, canActivate:[AuthGuard] },
   { path: 'login', component:LoginComponent },
+  { path: 'logout', component:LogoutComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'login' }
 ];
 

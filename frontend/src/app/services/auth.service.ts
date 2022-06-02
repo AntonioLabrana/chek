@@ -19,6 +19,18 @@ export class AuthService {
     return this.http.post(this.url, usuario);
   }
 
+  logout(){
+    const token = localStorage.getItem('token') || '';
+    
+    if( !localStorage.getItem('token') && this.JwtHelper.isTokenExpired(token) ) return false;
+
+    localStorage.removeItem('token');
+    localStorage.removeItem('nombre');
+    localStorage.removeItem('editarDest');
+
+    return true;
+  }
+
   isAuth(): boolean{
     const token = localStorage.getItem('token') || '';
     
