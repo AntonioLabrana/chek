@@ -16,12 +16,12 @@ export class LoginComponent implements OnInit {
   });
 
   constructor( 
-    private authService: AuthService ,
+    private authService: AuthService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-  }
+  }  
 
   login(){
     console.log( this.loginForm.value );
