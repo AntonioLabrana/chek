@@ -50,6 +50,12 @@
 .ng-touched.ng-invalid:is(input, textarea, select),
 .ng-dirty.ng-invalid:is(input, textarea, select){
     outline: 2px solid #bd0c0c;
+    color: #bd0c0c
+}
+
+.ng-touched.ng-invalid:is(p),
+.ng-dirty.ng-invalid:is(p), p{
+    color: #bd0c0c
 }
 
 .btn-primary,.btn-primary:disabled,.banner,.topGrid, .btn{

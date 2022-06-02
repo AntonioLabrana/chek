@@ -41,7 +41,7 @@ const addDestinatario = async (request, response) => {
         const connection = await getConnection();
         const result = await connection.query("INSERT INTO destinatarios SET ?", request.body);       
         
-        response.status(200).json({message:"Destinatario agregado"});
+        response.status(200).json({message:"Destinatario agregado con éxito"});
     }
     catch(error){
         response.status(500);
@@ -59,7 +59,7 @@ const updateDestinatario = async (request, response) => {
 
         if( !result || result.length === 0 ) response.status(404).json({message:"No es posible actualizar. Destinatario no encontrado"});
 
-        response.status(200).json({message:"Destinatario actualizado"});
+        response.status(200).json({message:"Destinatario actualizado con éxito"});
     }
     catch(error){
         response.status(500);
@@ -68,8 +68,7 @@ const updateDestinatario = async (request, response) => {
 };
 
 const deleteDestinatario = async (request, response) => {
-    try{
-        console.log(request.params);
+    try{        
         if( !request || !request.params ) response.status(400).json({message:"Request vacío"});
 
         const { id } = request.params;
@@ -78,7 +77,7 @@ const deleteDestinatario = async (request, response) => {
 
         if( !result || result.length === 0 ) response.status(404).json({message:"No es posible eliminar. Destinatario no encontrado"});
 
-        response.status(200).json({message:"Destinatario eliminado"});
+        response.status(200).json({message:"Destinatario eliminado con éxito"});
     }
     catch(error){
         response.status(500);

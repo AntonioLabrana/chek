@@ -43,7 +43,7 @@ export class DestinatariosComponent implements OnInit {
     this.destService.deleteDestinatario(id).subscribe(
       response => {
         alert(response.message);
-        this.router.navigate(['destinatarios']);
+        this.ngOnInit();
       }
     );    
   }

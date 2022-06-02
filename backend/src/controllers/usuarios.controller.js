@@ -16,7 +16,7 @@ const getUsuario = async (request, response) => {
 
         let data = JSON.stringify(result[0]);
         let token = jwt.sign(data, process.env.KEY);
-        console.log(token);
+        
         response.status(200).json({token});
     }
     catch(error){
