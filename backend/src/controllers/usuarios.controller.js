@@ -10,7 +10,7 @@ const getUsuario = async (request, response) => {
         const { usuario, contrasena } = request.body;
         const connection = await getConnection();   
 
-        const sqlSelectExists = "SELECT IF( EXISTS(SELECT usuario FROM "+ process.env.LOGIN +" WHERE usuario = ? AND contrasena = ?), 'LOGIN', 'NO_EXISTS') as RESULT;";        
+        const sqlSelectExists = "SELECT IF( EXISTS(SELECT usuario FROM usuarios WHERE usuario = ? AND contrasena = ?), 'LOGIN', 'NO_EXISTS') as RESULT;";        
         const result = await connection.query(sqlSelectExists, [usuario, contrasena], 
                 (error, rows) => {
                     if( !error ){

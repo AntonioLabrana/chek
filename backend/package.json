@@ -6,11 +6,12 @@
   "type":"module",
   "scripts": {
     "start":"node src/index.js",
+    "heroku-postbuild": "npm run build",
     "babel-node": "babel-node --presets=@babel/preset-env",
     "dev": "nodemon --exec npm run babel-node src/index.js"
   },
   "keywords": [
-    "Check"
+    "Chek"
   ],
   "author": "Antonio Labraña",
   "license": "ISC",
