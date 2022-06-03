@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { methods as destinatariosController } from "../controllers/destinatarios.controller";
+import { methods as destinatariosController } from "../controllers/destinatarios.controller.js";
 
 const trans = Router();
 

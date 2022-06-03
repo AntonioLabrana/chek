@@ -1,6 +1,7 @@
-import { getConnection } from "./../database/database";
+import { getConnection } from "./../database/database.js";
+import jwt from "jsonwebtoken";
 
-const jwt = require('jsonwebtoken');
+// const jwt = require('jsonwebtoken');
 
 const getUsuario = async (request, response) => {
     try{
@@ -37,16 +38,16 @@ const getUsuario = async (request, response) => {
     }
 };
 
-const checkToken = (request, response, next) => {
-    const auth = request.headers.authorization;
+// const checkToken = (request, response, next) => {
+//     const auth = request.headers.authorization;
 
-    if( auth ) response.status(401).json({message:"No autorizado"});
+//     if( auth ) response.status(401).json({message:"No autorizado"});
 
-    const token = auth.substr(7);
+//     const token = auth.substr(7);
 
-    if( token !== '' ) request.data = jwt.verify(token, process.env.KEY); 
-    else  response.status(401).json({message:"No autorizado"});
-};
+//     if( token !== '' ) request.data = jwt.verify(token, process.env.KEY); 
+//     else  response.status(401).json({message:"No autorizado"});
+// };
 
 export const methods = {   
     getUsuario
