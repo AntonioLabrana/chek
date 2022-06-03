@@ -1,7 +1,5 @@
 import express from "express";
 import morgan from "morgan";
-
-// Routes Import
 import destinatariosApi from "./routes/destinatarios.api";
 import usuariosApi from "./routes/usuarios.api";
 import transferenciasApi from './routes/transferencias.api'
@@ -10,7 +8,7 @@ const app = express();
 const cors = require('cors');
 
 // Settings
-app.set("port", 9090);
+app.set("port", process.env.PORT || 9090);
 
 // Middlewares
 app.use( morgan("dev") );
