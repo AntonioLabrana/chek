@@ -21,9 +21,4 @@ app.use("/api/transferencias", transferenciasApi);
 app.use("/api/destinatarios", destinatariosApi );
 app.use("/api/usuarios", usuariosApi);
 
-const PORT = process.env.PORT || 9090;
-app.listen(PORT, function(){
-    console.log("NodeJS on PORT = ", PORT);
-});
-
 export default app;
