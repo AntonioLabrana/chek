@@ -21,4 +21,8 @@ app.use("/api/transferencias", transferenciasApi);
 app.use("/api/destinatarios", destinatariosApi );
 app.use("/api/usuarios", usuariosApi);
 
+app.listen(
+    console.log("Heroku NodeJS on PORT = " + process.env.PORT)
+);
+
 export default app;
